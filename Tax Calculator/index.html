@@ -1,3 +1,4 @@
+
 <html dir="rtl" lang="he">
     
     <head>
@@ -11,8 +12,9 @@
         {
             let x= parseFloat(document.getElementById('1').value);
             let y= parseFloat(document.getElementById('2').value);
+            let z= parseFloat(document.getElementById('3').value);
 
-            if(document.getElementById('1').value=='' || document.getElementById('2').value=='')
+            if(document.getElementById('1').value=='' || document.getElementById('2').value=='' || document.getElementById('3').value=='')
             alert('צריך למלא את כל השדות!');
 
             else
@@ -81,16 +83,16 @@
 
                 let health=0, social=0;
 
-                if(y>6331)
+                if(z>6331)
                 {
-                    health= ((y-6331)*0.05) + (6330*0.031);
-                    social= ((y-6331)*0.07) + (6330*0.004);
+                    health= ((z-6331)*0.05) + (6330*0.031);
+                    social= ((z-6331)*0.07) + (6330*0.004);
                 }
 
                 else
                 {
-                    health= y*0.031;
-                    social= y*0.004;
+                    health= z*0.031;
+                    social= z*0.004;
                 }
 
                 health= health.toFixed(2);
@@ -98,14 +100,14 @@
 
                 ////////////////////////////////////////////////////////////////////////////
 
-                document.getElementById('3').style.visibility= 'visible';
-                document.getElementById('3').innerHTML='תשלום לביטוח לאומי: ' + social + '₪'
-
                 document.getElementById('4').style.visibility= 'visible';
-                document.getElementById('4').innerHTML='תשלום לביטוח בריאות: ' + health + '₪'
+                document.getElementById('4').innerHTML='תשלום לביטוח לאומי: ' + social + '₪'
 
                 document.getElementById('5').style.visibility= 'visible';
-                document.getElementById('5').innerHTML='תשלום למס הכנסה: ' + total + '₪'
+                document.getElementById('5').innerHTML='תשלום לביטוח בריאות: ' + health + '₪'
+
+                document.getElementById('6').style.visibility= 'visible';
+                document.getElementById('6').innerHTML='תשלום למס הכנסה: ' + total + '₪'
             }
         }
 
@@ -115,15 +117,33 @@
 
         <h1>מחשבון מיסים לחודשי 2022</h1>
 
-        <input id="1" style="height: 40px; font-size: 20px;" placeholder="הכנס כמות נקודות זיכוי" type="text"><br><br>
-        <input id="2" style="height: 40px; font-size: 20px;" placeholder="הכנס משכורת ברוטו" type="text"><br><br>
+        <input id="1" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס כמות נקודות זיכוי" type="text"><br><br>
+        <input id="2" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס משכורת ברוטו למס הכנסה" type="text"><br><br>
+        <input id="3" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס משכורת ברוטו לביטוח " type="text"><br><br>
+        
+        <input id="button" style="cursor: pointer; height: 40px; font-size: 20px;" type="button" value="חשב מיסים" onclick="calc()"><br><br>
 
-        <input style="cursor: pointer; height: 40px; font-size: 20px;" type="button" value="חשב מיסים" onclick="calc()"><br><br>
+        <script>
+
+            var input = document.getElementById("3");
+
+            input.addEventListener("keyup", function(event)
+            {
+                if (event.keyCode === 13)
+                {
+                    event.preventDefault();
+                    document.getElementById("button").click();
+                }
+            });
+
+        </script>
 
         <div style="color: rgb(13, 17, 255); font-size: 25px;"><b>
-            <div id="3" style="visibility: hidden;"></div><br>
+
             <div id="4" style="visibility: hidden;"></div><br>
             <div id="5" style="visibility: hidden;"></div><br>
+            <div id="6" style="visibility: hidden;"></div><br>
+
         </b></div>
 
     </body>
