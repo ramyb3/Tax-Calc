@@ -84,8 +84,17 @@
 
                 if(z>6331)
                 {
-                    health= ((z-6331)*0.05) + (6330*0.031);
-                    social= ((z-6331)*0.07) + (6330*0.004);
+                    if(z<45076)
+                    {
+                        health= ((z-6331)*0.05) + (6331*0.031);
+                        social= ((z-6331)*0.07) + (6331*0.004);
+                    }
+
+                    else
+                    {
+                        health= ((45075-6331)*0.05) + (6330*0.031);
+                        social= ((45075-6331)*0.07) + (6330*0.004);
+                    }
                 }
 
                 else
@@ -99,14 +108,15 @@
 
                 ////////////////////////////////////////////////////////////////////////////
 
-                document.getElementById('4').style.visibility= 'visible';
-                document.getElementById('4').innerHTML='תשלום לביטוח לאומי: ' + social + '₪'
+                document.getElementById('show').style.visibility= 'visible';
 
-                document.getElementById('5').style.visibility= 'visible';
-                document.getElementById('5').innerHTML='תשלום לביטוח בריאות: ' + health + '₪'
+                document.getElementById('4').innerHTML='תשלום לביטוח לאומי: ' + social + '₪';
+                document.getElementById('5').innerHTML='תשלום לביטוח בריאות: ' + health + '₪';
+                document.getElementById('6').innerHTML='תשלום למס הכנסה: ' + total + '₪';
 
-                document.getElementById('6').style.visibility= 'visible';
-                document.getElementById('6').innerHTML='תשלום למס הכנסה: ' + total + '₪'
+                total= parseFloat(health)+parseFloat(social)+parseFloat(total);
+
+                document.getElementById('7').innerHTML='סה"כ ניכויים: ' + total + '₪';
             }
         }
 
@@ -155,11 +165,12 @@
 
         </script>
 
-        <div style="color: rgb(13, 17, 255); font-size: 25px;"><b>
+        <div id="show" style="color: rgb(13, 17, 255); font-size: 25px; visibility: hidden;"><b>
 
-            <div id="4" style="visibility: hidden;"></div><br>
-            <div id="5" style="visibility: hidden;"></div><br>
-            <div id="6" style="visibility: hidden;"></div><br>
+            <div id="4"></div><br>
+            <div id="5"></div><br>
+            <div id="6"></div><br>
+            <div id="7"></div><br>
 
         </b></div>
 
