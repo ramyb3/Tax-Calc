@@ -1,8 +1,14 @@
+<!DOCTYPE html>
 <html dir="rtl" lang="he">
-
+  
     <head>
+
+        <link rel="stylesheet" href="styles.css">
+
         <meta name="viewport" content="width=device-width, initial-scale=0.75">
+        
         <title>מחשבון מיסים לשנת 2022</title>
+
     </head>
 
     <script>
@@ -96,7 +102,7 @@
                         social= ((45075-6331)*0.07) + (6331*0.004);
                     }
                 }
-                
+
                 else
                 {
                     health= z*0.031;
@@ -134,18 +140,18 @@
                 alert('משכורת ברוטו לביטוח לאומי (המצויינת בצד התלוש)');
             }
         }
-
+        
     </script>
 
-    <body style="text-align: center; background-color: rgb(242, 211, 159);">
+    <body>
 
         <h1>מחשבון מיסים לחודשי 2022</h1>
 
-        <input id="1" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס כמות נקודות זיכוי" type="text"><br><br>
-        <input onfocus="help(1)" id="2" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס משכורת ברוטו למס הכנסה" type="text"><br><br>
-        <input onfocus="help(2)" id="3" style="height: 40px; width: 280px; font-size: 20px;" placeholder="הכנס משכורת ברוטו לביטוח " type="text"><br><br>
+        <input id="1" placeholder="הכנס כמות נקודות זיכוי" type="text"><br><br>
+        <input onfocus="help(1)" id="2" placeholder="הכנס משכורת ברוטו למס הכנסה" type="text"><br><br>
+        <input onfocus="help(2)" id="3" placeholder="הכנס משכורת ברוטו לביטוח " type="text"><br><br>
 
-        <input id="button" style="cursor: pointer; height: 40px; font-size: 20px;" type="button" value="חשב מיסים" onclick="calc()"><br><br>
+        <input id="button" style="cursor: pointer; width: min-content;" type="button" value="חשב מיסים" onclick="calc()"><br><br>
 
         <input id='counter1' type="hidden" value='0'>
         <input id='counter2' type="hidden" value='0'>
