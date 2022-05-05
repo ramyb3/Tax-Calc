@@ -10,3 +10,8 @@ input
     width: 280px;
     font-size: 20px;
 }
+
+div
+{
+    margin-bottom: 10px;
+}
