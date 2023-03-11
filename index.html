@@ -37,9 +37,9 @@
       const MIN_SOCIAL_PERCENTAGE = 0.004;
       const MAX_SOCIAL_PERCENTAGE = 0.07;
 
-      let points = parseFloat(document.getElementById("1").value);
-      let irsPaycheck = parseFloat(document.getElementById("2").value);
-      let insurancePaycheck = parseFloat(document.getElementById("3").value);
+      const points = parseFloat(document.getElementById("1").value);
+      const irsPaycheck = parseFloat(document.getElementById("2").value);
+      const insurancePaycheck = parseFloat(document.getElementById("3").value);
       let pension = parseFloat(document.getElementById("4").value) || 0;
 
       if (
@@ -158,11 +158,11 @@
     }
 
     function help(method) {
-      if (method == 1 && document.getElementById("counter1").value == "0") {
+      if (method && document.getElementById("counter1").value == "0") {
         document.getElementById("counter1").value = "1";
         alert("משכורת ברוטו המצויינת בתלוש (ברוטו למס הכנסה)");
       }
-      if (method == 2 && document.getElementById("counter2").value == "0") {
+      if (!method && document.getElementById("counter2").value == "0") {
         document.getElementById("counter2").value = "1";
         alert("משכורת ברוטו לביטוח לאומי (המצויינת בצד התלוש)");
       }
@@ -183,14 +183,14 @@
       <input id="1" placeholder="הזן כמות נקודות זיכוי" type="number" min="0" />
       <input id="4" placeholder="הזן סכום הפרשה לפנסיה" type="number" min="0" />
       <input
-        onfocus="help(1)"
+        onfocus="help(true)"
         id="2"
         placeholder="הזן משכורת ברוטו למס הכנסה"
         type="number"
         min="0"
       />
       <input
-        onfocus="help(2)"
+        onfocus="help(false)"
         id="3"
         placeholder="הזן משכורת ברוטו לביטוח"
         type="number"
